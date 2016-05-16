@@ -17,18 +17,12 @@ module.exports = function() {
     this.bot = null;
   };
   
-  Carakuri.Slack     = Slack;
-  Carakuri.Messenger = Messenger;
-  Carakuri.LINE      = LINE;
-  Carakuri.Twitter   = Twitter;
-  Carakuri.Skype     = Skype;
-  
   var CHAT_TYPE = {
-    SLACK: Carakuri.Slack,
-    MESSENGER: Carakuri.Messenger,
-    LINE: Carakuri.LINE,
-    TWITTER: Carakuri.Twitter,
-    SKYPE: Carakuri.Skype
+    SLACK: Slack,
+    MESSENGER: Messenger,
+    LINE: LINE,
+    TWITTER: Twitter,
+    SKYPE: Skype
   };
 
   Carakuri.prototype.setConfig = function() {
