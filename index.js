@@ -6,6 +6,7 @@ var Twitter   = require('./libs/bots/twitter');
 var Skype     = require('./libs/bots/skype');
 
 module.exports = function() {
+  var envs = {}
   var Carakuri = function(){
     envs = {
       token_url: process.env.CARAKURI_TOKEN
@@ -65,7 +66,7 @@ module.exports = function() {
     me = this;
     me.data = data;
     return new Promise(function(resolve, reject) {
-      request.put(token_url)
+      request.put(envs.token_url)
         .send({data: me.data})
         .end(function(err, res) {
           if (res.ok) {
