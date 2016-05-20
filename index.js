@@ -7,7 +7,7 @@ var Skype     = require('./libs/bots/skype');
 
 module.exports = function() {
   var Carakuri = function(){
-    this.envs = {
+    envs = {
       token_url: process.env.CARAKURI_TOKEN
     };
     delete process.env['CARAKURI_TOKEN']

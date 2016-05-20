@@ -1,10 +1,12 @@
 var request = require('superagent');
 
 module.exports = function() {
+  var envs = {};
   Slack = function() {
-    this.envs = {
+    envs = {
       slack_webhook_url: process.env.SLACK_WEBHOOK_URL
     };
+    delete process.env['SLACK_WEBHOOK_URL']
     
     this.message = {};
   };
@@ -20,7 +22,7 @@ module.exports = function() {
   Slack.prototype.send = function(to, msg, resolve, reject) {
     me = this;
     request
-      .post(me.envs.slack_webhook_url)
+      .post(envs.slack_webhook_url)
       .set('Content-type', 'application/json')
       .send({
         text: msg
