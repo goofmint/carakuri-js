@@ -62,6 +62,14 @@ module.exports = function() {
     return this.bot.reply(msg);
   };
   
+  Carakuri.prototype.reply_stamp = function(msg, pkg_id) {
+    if (typeof this.bot.reply_stamp == 'function') {
+      return this.bot.reply_stamp(msg);
+    } else {
+      return this.bot.reply(msg);
+    }
+  };
+  
   Carakuri.prototype.save = function(data) {
     me = this;
     me.data = data;
